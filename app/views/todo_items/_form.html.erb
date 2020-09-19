@@ -1,0 +1,7 @@
+<%= form_for([@todo_list]) do |f| %>
+<%#= form_for([@todo_list, @todo_list.todo_items.build]) do |f| %>
+  <label>New Todo
+  <%= f.text_field(:content, placeholder: "New Todo") %>
+  </label>
+  <%= f.submit %>
+<% end %>
