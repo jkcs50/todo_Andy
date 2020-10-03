@@ -1,24 +1,37 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @todo_list.title %>
-</p>
+<div class="col-lg-8 col-md-6 ml-auto mr-auto">
+  <div class="card">
+    <div class="card-header ph-card-green">
+      <h1>
+        Todo List:
+        <%= @todo_list.title %>
+      </h1>
+    </div>
+    <div class="card-body">
+      <strong>Description:</strong>
+      <%= @todo_list.description %>
+    </div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @todo_list.description %>
-</p>
-
-
-<div class="todo_items_wrapper">
-  <%= render @todo_list.todo_items %>
-  <div id="form">
-    <%= render "todo_items/form" %>
+    <div class="card-footer">
+      <%= render @todo_list.todo_items %>
+    </div>
   </div>
+  <div>
+    <p></p>
+    <%= render "todo_items/form" %>
+    <p></p>
+    <%= link_to 'Edit', edit_todo_list_path(@todo_list) %> |
+    <%= link_to 'Back', todo_lists_path %>
+  </div>
+
+    
+
 </div>
+  
+  
 
 
 
-<%= link_to 'Edit', edit_todo_list_path(@todo_list) %> |
-<%= link_to 'Back', todo_lists_path %>
+
+

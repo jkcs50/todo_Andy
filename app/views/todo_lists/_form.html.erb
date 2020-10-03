@@ -1,4 +1,6 @@
-<%= simple_form_for todo_list, local: true do |form| %>
+
+<%= simple_form_for todo_list, local: true do |f| %>
+  <%= f.error_notification %>
   <% if todo_list.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(todo_list.errors.count, "error") %> prohibited this todo_list from being saved:</h2>
@@ -11,17 +13,10 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-  </div>
+  <%= f.input :title, label: "Name of the List", required: true, autofocus: true, placeholder: "Name of the Todo List" %>
+  <%= f.input :description, label: "Tasks", required: true, placeholder: "Description of the List." %>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
+  <div class="form-actions">
+    <%= f.button :submit,  class: "btn btn-info btn-lg" %>
   </div>
 <% end %>

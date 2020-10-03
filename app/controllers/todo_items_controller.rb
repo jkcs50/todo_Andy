@@ -20,9 +20,15 @@ class TodoItemsController < ApplicationController
   end
 
   def complete
-    
-    @todo_item.update_attribute(:completed_at, Time.now)
-    redirect_to @todo_list, notice: "Todo item #{@todo_item.content} completed! Good job!"
+    if @todo_item.completed
+      @todo_item.update(completed_at: :null, completed: false)
+      redirect_to @todo_list, notice: "Todo item has been unchecked"
+    else
+
+      @todo_item.update(completed_at: Time.now, completed: true)
+      redirect_to @todo_list, notice: "Todo item #{@todo_item.content} completed! Good job!"
+
+    end
   end
 
   private

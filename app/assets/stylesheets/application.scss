@@ -24,3 +24,25 @@
 .link-white {
   color: #FFFFFF !important;
 }
+.link-hover {
+  color: #FFFFFF !important;
+}
+
+a.hover_black:hover  { color: orange !important;  } 
+
+.ph-card-header {
+  color: white !important;
+  background-color: $primary !important;
+}
+.ph-card-warning {
+  color: white !important;
+  background-color: $warning !important;
+}
+.ph-card-green {
+  color: white !important;
+  background-color: $success !important;
+}
+
+.striker {
+  text-decoration: line-through;
+}

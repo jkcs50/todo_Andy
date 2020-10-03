@@ -7,7 +7,7 @@
     
       <div class="card">  
         <div class="card-body">  
-          <h5 class="card-title"><%= link_to todo_list.title, todo_list %></h5> 
+          <h5 class="card-title"><%= link_to todo_list.title, todo_list, class: "hover_black" %></h5> 
             
           <p class="card-text"><%= todo_list.description %></p>
           <div class="float-right">
@@ -17,7 +17,7 @@
             <%= link_to edit_todo_list_path(todo_list) do %>
               <div class="far fa-edit"></div>
             <% end %>
-            <%= link_to todo_list, method: :delete, data: { confirm: 'Are you sure?' } do %>
+            <%= link_to todo_list, method: :delete, data: { confirm: 'Are you sure?' }, class: "hover_black" do %>
               <div class="fas fa-trash-alt"></div>
             <% end %>
           </div>
