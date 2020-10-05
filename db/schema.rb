@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_03_021603) do
+ActiveRecord::Schema.define(version: 2020_10_05_115317) do
 
   create_table "todo_items", force: :cascade do |t|
     t.string "content"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 2020_10_03_021603) do
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "row_order"
   end
 
   add_foreign_key "todo_items", "todo_lists"

@@ -34,6 +34,8 @@ gem 'jquery-rails'
 gem 'simple_form'
 
 gem 'font-awesome-sass', '~> 5.12.0'
+gem 'ranked-model'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -1,10 +1,22 @@
 class TodoListsController < ApplicationController
   before_action :set_todo_list, only: [:show, :edit, :update, :destroy]
 
+
+
+
+  def sort
+    todo_list = TodoList.find(params[:id])
+    todo_list.update(todo_list_params)
+    render body: nil
+  end
+
   # GET /todo_lists
   # GET /todo_lists.json
+
+
   def index
-    @todo_lists = TodoList.all
+    #@todo_lists = TodoList.all
+    @todo_lists = TodoList.rank(:row_order).all
   end
 
   # GET /todo_lists/1
@@ -69,6 +81,6 @@ class TodoListsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def todo_list_params
-      params.require(:todo_list).permit(:title, :description)
+      params.require(:todo_list).permit(:title, :description, :row_order_position)
     end
 end
