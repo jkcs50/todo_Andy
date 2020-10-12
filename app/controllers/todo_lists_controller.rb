@@ -5,7 +5,7 @@ class TodoListsController < ApplicationController
 
 
   def sort
-    todo_list = TodoList.find(params[:id])
+    todo_list = TodoList.find(params[:todo_list_id])
     todo_list.update(todo_list_params)
     render body: nil
   end

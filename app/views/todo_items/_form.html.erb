@@ -2,6 +2,7 @@
 <%#= form_for([@todo_list, @todo_list.todo_items.build]) do |f| %>
  
   <%= f.input :content, label: "New Todo", placeholder: "To Do Item" %>
+  <%= f.input :due_date, placeholder: "MM/DD Time", label: "Due Date" %>
   
   <%= f.submit :class => "btn btn-primary"%>
 <% end %>

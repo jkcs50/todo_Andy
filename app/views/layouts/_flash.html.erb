@@ -1,9 +1,13 @@
 <% if flash[:notice] %>
-  <p class="notice"><%= notice %></p>
+  <div class="alert alert-primary global-notification">
+    <p class="notice"><%= notice %></p>
+  </div>
 <% end %>
 
 <% if flash[:alert] %>
-  <p class="alert"><%= alert %></p>
+  <div class="alert alert-custom global-notification">
+    <p class="alert"><%= alert %></p>
+  </div>
 <% end %>
 
 

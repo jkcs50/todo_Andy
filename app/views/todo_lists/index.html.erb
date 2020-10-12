@@ -1,15 +1,15 @@
-<p id="notice"><%= notice %></p>
+<%= render "layouts/flash" %>
 <h1>Todo Lists <span class="float-right "><%= link_to "New Todo List", new_todo_list_path, class: "btn btn-primary btn-small link-white" %></span></h1>
 
 
 <ul class="list-group todo-sortable">
   <% @todo_lists.each do |todo_list| %>
-    
+    <%= content_tag "div", id: "todo_list-#{todo_list.id}", data: { model_name: todo_list.class.name.underscore, update_url: todo_list_sort_path(todo_list)} do %>
       <div class="card">  
         <div class="card-body">  
           <h5 class="card-title">
 
-             <%= todo_list.row_order_rank %>
+             List <%= todo_list.row_order_rank + 1 %>.
              <%= link_to todo_list.title, todo_list %>
           </h5> 
             
@@ -21,18 +21,16 @@
             <%= link_to edit_todo_list_path(todo_list) do %>
               <div class="far fa-edit"></div>
             <% end %>
-            <%= link_to todo_list, method: :delete, data: { confirm: 'Are you sure?' }, class: "hover_black" do %>
+            <%= link_to todo_list, method: :delete, data: { confirm: 'Are you sure?' } do %>
               <div class="fas fa-trash-alt"></div>
              
             <% end %>
           </div>
         </div>
       </div>
-    
+    <% end %>
   <% end %>
 </ul>
 
-<div class="links">
-  
-</div>
+
 
