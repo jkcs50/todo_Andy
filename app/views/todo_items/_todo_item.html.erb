@@ -28,10 +28,15 @@
   <% end %>
 
   <div class="col-3">
-    <p>Due Date: <%= todo_item.due_date %></p>
+    <p>Due Date: <br>
+    <%= todo_item.due_date.strftime("%b %d, %Y (%H:%M %p)") %></p>
   </div>
   <div class="col-3">
-    <p>Completed At: <%= todo_item.completed_at %></p>
+    <% if todo_item.completed_at.present? %>
+      <p>Completed At: <%= todo_item.completed_at.strftime("%b %d, %Y (%H:%M %p)") %></p>
+    <% else %>
+      <p>Completed At:
+    <% end %>
   </div>
   <div class="col-1 float-right"> 
     <%= link_to todo_list_todo_item_path(@todo_list, todo_item.id), 

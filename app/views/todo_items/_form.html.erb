@@ -1,8 +1,11 @@
 <%= simple_form_for([@todo_list, @todo_list.todo_items.build]) do |f| %>
+ <%= f.error_notification %>
 <%#= form_for([@todo_list, @todo_list.todo_items.build]) do |f| %>
  
   <%= f.input :content, label: "New Todo", placeholder: "To Do Item" %>
-  <%= f.input :due_date, placeholder: "MM/DD Time", label: "Due Date" %>
-  
+ 
+  <%= f.input :due_date,  placeholder: "MM/DD Time", label: "Due Date", start_year: Date.today.year, 
+    order: [:month, :day, :year] %>
+
   <%= f.submit :class => "btn btn-primary"%>
 <% end %>

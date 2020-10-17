@@ -5,6 +5,11 @@ class TodoItemsController < ApplicationController
   def create
     @todo_item = @todo_list.todo_items.create(todo_item_params)
 
+    unless @todo_item.save
+      flash[:alert] = @todo_item.errors.full_messages[0]
+    end
+    
+
     redirect_to @todo_list
   end
 
@@ -42,7 +47,7 @@ class TodoItemsController < ApplicationController
   end
 
   def todo_item_params
-    params.require(:todo_item).permit(:content)
+    params.require(:todo_item).permit(:content, :due_date)
   end
 
 end
